@@ -34,6 +34,7 @@ ext_map_command_t map_command;                           // 小地图交互数�
 ext_map_robot_data_t map_robot_data;                     // 小地图交互数据
 ext_map_data_t map_data;                                 // 选手端接收烧饼或半自动数据
 ext_custom_info_t custom_info;                           // 选手端接收机器数据
+//用不到的可以注释掉
 
 void Judge_Control_Init(UART_HandleTypeDef *huart)
 {
@@ -60,7 +61,7 @@ void unpack_fifo_handle(uint8_t *prxbuf) //
 {
     p_header = prxbuf; //找到帧头然后处理
     count = 0;
-    while (count <= 50)
+    while (count <= 50)//判断是否超出缓冲区
     {
         if (*p_header == JUDGE_SOF)
         {
